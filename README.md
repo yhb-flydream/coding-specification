@@ -1,2 +1,2 @@
-# template-specification (编码规范)
+# coding-specification (代码规范)
 > 黄金定律：永远遵循一套编码规范，不管多少人共同参与一个项目，一定要确保每一行代码都像同一个人编写的
