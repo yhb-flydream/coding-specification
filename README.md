@@ -2,9 +2,7 @@
 
 > 黄金定律：永远遵循一套编码规范，不管多少人共同参与一个项目，一定要确保每一行代码都像同一个人编写的
 
-
-**说明：**
-
+- **说明：**
 - 本规范参照了
   - [`Google HTML/CSS Style Guide`](https://google.github.io/styleguide/htmlcssguide.html)
   - [`Google JavaScript Style Guide`](https://google.github.io/styleguide/jsguide.html)
@@ -345,7 +343,7 @@ The currency symbol for the Euro is “€”.
 </md-progress-circular>
 ```
 
-### 属性值引号
+### 属性值的引号
 
 - 引用属性值时，请使用**`双引号`**
 
@@ -534,7 +532,7 @@ color: #ebc;
 
 ### `ID` 和 `CLASS` 名称分隔符
 
-- 用连字符(`-`)分隔 `ID` 和 `CLASS` 
+- 用连字符(`-`)分隔 `ID` 和 `CLASS`
 - 为了提高理解度和可扫描性，除了连字符之外，不要将连接词中的单词和缩写连接到任何字符
 
 ```css
@@ -759,7 +757,7 @@ html {
     - block可以相互嵌套
   - `E` Element 元素
     - 模块的所有下层平级元素
-    - 一个Block下的所有Element无论相互层级如何,都要摊开扁平的属于Block所以 BEM 
+    - 一个Block下的所有Element无论相互层级如何,都要摊开扁平的属于Block所以 BEM
     - 最多只有 `B+E+M` 三级,不可能出现 B+E+E+..+E+M 超长class名,也要求E不能同名
   - `M` Modifier 状态
     - 之前我们经常写的 `.current .active` 等表达状态
