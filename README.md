@@ -763,3 +763,5 @@ html {
     - 最多只有 `B+E+M` 三级,不可能出现 B+E+E+..+E+M 超长class名,也要求E不能同名
   - `M` Modifier 状态
     - 之前我们经常写的 `.current .active` 等表达状态
+
+## `javascript`
