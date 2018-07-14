@@ -9,6 +9,9 @@
   - [`Google HTML/CSS Style Guide`](https://google.github.io/styleguide/htmlcssguide.html)
   - [`Google JavaScript Style Guide`](https://google.github.io/styleguide/jsguide.html)
   - [`Code Guide`](http://alloyteam.github.io/CodeGuide/)
+  - [google JSDoc](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler)
+  - [JSDoc Guide](http://yuri4ever.github.io/jsdoc/)
+  - [usejsdoc](http://usejsdoc.org/)
 
 ## 基础规范
 
@@ -1060,7 +1063,3 @@ if (typeof person === 'undefined') {
     ...
 }
 ```
-
-- [google JSDoc](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler)
-- [JSDoc Guide](http://yuri4ever.github.io/jsdoc/)
-- [usejsdoc](http://usejsdoc.org/)
