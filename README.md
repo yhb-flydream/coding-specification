@@ -1061,6 +1061,6 @@ if (typeof person === 'undefined') {
 }
 ```
 
-[google JSDoc](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler)
-[JSDoc Guide](http://yuri4ever.github.io/jsdoc/)
-[usejsdoc](http://usejsdoc.org/)
+- [google JSDoc](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler)
+- [JSDoc Guide](http://yuri4ever.github.io/jsdoc/)
+- [usejsdoc](http://usejsdoc.org/)
