@@ -12,9 +12,9 @@
 
 - 目录
   - [基础规范](#基础规范)
-  - [HTML样式规则](#HTML样式规则)
-  - [CSS样式规则](#CSS样式规则)
-  - [JavaScript样式规则](#JavaScript样式规则)
+  - [HTML样式规则](#HTML)
+  - [CSS样式规则](#CSS)
+  - [JavaScript样式规则](#JavaScript)
 
 ## 基础规范
 
@@ -159,7 +159,7 @@ color: #e5e5e5;
 
 ---
 
-## HTML样式规则
+## HTML
 
 ### 文件类型(Document Type)
 
@@ -371,7 +371,7 @@ The currency symbol for the Euro is “€”.
 
 ---
 
-## CSS样式规则
+## CSS
 
 ### 基本规范
 
@@ -774,7 +774,7 @@ html {
   - `M` Modifier 状态
     - 之前我们经常写的 `.current .active` 等表达状态
 
-## JavaScript样式规则
+## JavaScript
 
 ### 基本规则
 
