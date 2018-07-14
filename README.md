@@ -2,11 +2,19 @@
 
 > 黄金定律：永远遵循一套编码规范，不管多少人共同参与一个项目，一定要确保每一行代码都像同一个人编写的
 
+[TOC]
+
 - **说明：**
 - 本规范参照了
   - [`Google HTML/CSS Style Guide`](https://google.github.io/styleguide/htmlcssguide.html)
   - [`Google JavaScript Style Guide`](https://google.github.io/styleguide/jsguide.html)
   - [`Code Guide`](http://alloyteam.github.io/CodeGuide/)
+
+- 目录
+  - [基础规范](#基础规范)
+  - [HTML样式规则](#HTML样式规则)
+  - [CSS样式规则](#CSS样式规则)
+  - [JavaScript样式规则](#JavaScript样式规则)
 
 ## 基础规范
 
@@ -151,7 +159,7 @@ color: #e5e5e5;
 
 ---
 
-## `HTML` 样式规则
+## HTML样式规则
 
 ### 文件类型(Document Type)
 
@@ -363,7 +371,7 @@ The currency symbol for the Euro is “€”.
 
 ---
 
-## CSS 样式规则
+## CSS样式规则
 
 ### 基本规范
 
@@ -766,7 +774,7 @@ html {
   - `M` Modifier 状态
     - 之前我们经常写的 `.current .active` 等表达状态
 
-## `JavaScript` 样式规则
+## JavaScript样式规则
 
 ### 基本规则
 
