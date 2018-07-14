@@ -82,6 +82,9 @@ color: #e5e5e5;
   - `background-color: rgba( 0, 0, 0, .5 );` 不推荐
   - `background-color: rgba(0, 0, 0, .5);` 推荐
 - 行末不要有多余的空格
+- 前缀一元运算符后，后缀一元运算符前
+  - `++ x;    y ++;` 不推荐
+  - `++x;    y++;` 推荐
 
 以下几种情况需要空格：
 
@@ -97,11 +100,12 @@ color: #e5e5e5;
 - `!important` '`!`'前 (非必要情况下不推荐使用 `!important`)
   - `color: red ! important;` 不推荐
   - `color: red !important;` 推荐
+- 运算符(`+ - * / =`)前后需要添加空格
 
 ### 注释
 
 - 注释'`/*`'后和'`*/`'前要空一个空格
-- `//` 后要空一个空格
+- `//` 后要空一个空格，且缩进与下一行代码保持一致，位于一个代码行的末尾，与代码间隔一个空格
 - 使用注释时尽量把要解释的内容解释清楚
 - 使用注释来解释代码：
   - 它包含了什么
@@ -762,4 +766,299 @@ html {
   - `M` Modifier 状态
     - 之前我们经常写的 `.current .active` 等表达状态
 
-## `javascript`
+## `JavaScript` 样式规则
+
+### 基本规则
+
+- 用 `===, !==` 代替 `==, !=`；
+- for-in里一定要有hasOwnProperty的判断；**(可选)**
+- 不要在内置对象的原型上添加方法，如 `Array, Date`；
+- 不要在内层作用域的代码里声明了变量，之后却访问到了外层作用域的同名变量；
+- 变量不要先使用后声明；
+- 不要在一句代码中单单使用构造函数，记得将其赋值给某个变量；
+- 不要在同个作用域下声明同名变量；
+- 不要在一些不需要的地方加括号，例：`delete(a.b)`；
+- 不要使用未声明的变量
+- 不要声明了变量却不使用；
+- 不要在应该做比较的地方做赋值；
+- 只在开发模式下使用 `debugger`，不要出现在提交的代码里；
+- 数组中不要存在空元素；
+- 不要在循环内部声明函数；
+- 不要像这样使用构造函数，例：`new function () { ... }, new Object;`
+- 换行符统一用 `LF`(在编辑器里面右下角有设置)
+
+```
+// not good
+if (a == 1) {
+    a++;
+}
+
+// good
+if (a === 1) {
+    a++;
+}
+
+// good
+for (key in obj) {
+    if (obj.hasOwnProperty(key)) {
+        // be sure that obj[key] belongs to the object and was not inherited
+        console.log(obj[key]);
+    }
+}
+
+// not good
+Array.prototype.count = function(value) {
+    return 4;
+};
+
+// not good
+var x = 1;
+
+function test() {
+    if (true) {
+        var x = 0;
+    }
+
+    x += 1;
+}
+
+// not good
+function test() {
+    console.log(x);
+
+    var x = 1;
+}
+
+// not good
+new Person();
+
+// good
+var person = new Person();
+
+// not good
+delete(obj.attr);
+
+// good
+delete obj.attr;
+
+// not good
+if (a = 10) {
+    a++;
+}
+
+// not good
+var a = [1, , , 2, 3];
+
+// not good
+var nums = [];
+
+for (var i = 0; i < 10; i++) {
+    (function(i) {
+        nums[i] = function(j) {
+            return i + j;
+        };
+    }(i));
+}
+
+// not good
+var singleton = new function() {
+    var privateVar;
+
+    this.publicMethod = function() {
+        privateVar = 1;
+    };
+
+    this.publicMethod2 = function() {
+        privateVar = 2;
+    };
+};
+```
+
+### 语句结尾分号 `;`
+
+- 在语句的结尾尽可能按照编辑器的提示添加结尾的分号，分割语句，避免意想不到的错误
+
+### 文档注释
+
+- 为了更好的理解协同开发的人员的代码，建议最好在一下几种情况下，对代码进行注释
+- 建议在以下情况下使用：
+  - 所有常量
+  - 所有函数
+  - 所有类
+
+```javascript
+/**
+ * @func
+ * @desc 一个带参数的函数
+ * @param {string} a - 参数a
+ * @param {number} b=1 - 参数b默认值为1
+ * @param {string} c=1 - 参数c有两种支持的取值</br>1—表示x</br>2—表示xx
+ * @param {object} d - 参数d为一个对象
+ * @param {string} d.e - 参数d的e属性
+ * @param {string} d.f - 参数d的f属性
+ * @param {object[]} g - 参数g为一个对象数组
+ * @param {string} g.h - 参数g数组中一项的h属性
+ * @param {string} g.i - 参数g数组中一项的i属性
+ * @param {string} [j] - 参数j是一个可选参数
+ */
+function foo(a, b, c, d, g, j) {
+    ...
+}
+```
+
+### 引号
+
+- `js` 代码中除了模板里面的属性使用双引号 `""` 外，其他统一使用单引号 `''`
+
+```javascript
+// not good
+var x = "test";
+
+// good
+var y = 'foo',
+    z = '<div id="test"></div>';
+```
+
+### 变量命名
+
+- 使用驼峰命名法，(不要用 `-` 也不要用 `_`) `thisIsMyName`
+- `'Android'` 在变量名中大写第一个字母 `AndroidVersion`
+- `'iOS'` 在变量名中小写第一个，大写后两个字母 `iOSVersion`
+- 常量全大写，用下划线连接 `MAX_COUNT = 10;`
+- 构造函数，大写第一个字母
+
+```javascript
+function Person(name) {
+    this.name = name;
+}
+```
+
+- 函数内部需要转换 `this` 时，可选变量有 `self，that，$this`，尽量不要选用下滑杠开头 `_this`
+- `jquery` 对象建议用`$`开头命名
+
+```javascript
+// not good
+var body = $('body');
+
+// good
+var $body = $('body');
+```
+
+### 变量声明
+
+- 尽量一个 `var，let，const` 声明一个变量，结尾带分号分割
+- 使用比较多的元素可以考虑用一个变量名来承载
+- `for` 循环中带有获取元素 `length` 属性的操作时，为了避免多次查询，可以选择用一个变量来承载
+
+```javascript
+// not good
+var value = 10,
+    result = value + 10,
+    i,
+    len;
+
+$('body').find('.xxx');
+$('body').css(...);
+
+for (var i = 0; i < items.length; i++) {
+    result += 10;
+}
+
+// good
+var value = 10;
+var result = value + 10;
+var i;
+var len;
+
+var $body = $('body');
+$body.find('.xxx');
+$body.css(...);
+
+for (var i = 0, len = items.length; i < len; i++) {
+    result += 10;
+}
+```
+
+### 数组、对象
+
+- 对象属性名不需要加引号；
+- 对象以缩进的形式书写，不要写在一行；
+- 数组、对象最后要保留逗号。
+
+```javascript
+// not good
+var a = {
+    'b': 1
+};
+
+var a = {b: 1};
+
+var a = {
+    b: 1,
+    c: 2
+};
+
+// good
+var a = {
+    b: 1,
+    c: 2,
+};
+
+var arr = [1, 2, 3, 4, 5];
+```
+
+### `null`
+
+- 适用场景：
+  - 初始化一个将来可能被赋值为对象的变量
+  - 与已经初始化的变量做比较
+  - 作为一个参数为对象的函数的调用传参
+  - 作为一个返回对象的函数的返回值
+
+- 不适用场景：
+  - 不要用null来判断函数调用时有无传参
+  - 不要与未初始化的变量做比较
+
+```javascript
+// not good
+function test(a, b) {
+    if (b === null) {
+        // not mean b is not supply
+        ...
+    }
+}
+
+var a;
+
+if (a === null) {
+    ...
+}
+
+// good
+var a = null;
+
+if (a === null) {
+    ...
+}
+```
+
+### `undefined`
+
+- 永远不要直接使用 `undefined` 进行变量判断；
+- 使用 `typeof` 和字符串 `'undefined'` 对变量进行判断。
+
+```javascript
+// not good
+if (person === undefined) {
+    ...
+}
+
+// good
+if (typeof person === 'undefined') {
+    ...
+}
+```
+
+[google JSDoc](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler)
+[JSDoc Guide](http://yuri4ever.github.io/jsdoc/)
+[usejsdoc](http://usejsdoc.org/)
