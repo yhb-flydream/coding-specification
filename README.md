@@ -10,12 +10,6 @@
   - [`Google JavaScript Style Guide`](https://google.github.io/styleguide/jsguide.html)
   - [`Code Guide`](http://alloyteam.github.io/CodeGuide/)
 
-- 目录
-  - [基础规范](#基础规范)
-  - [HTML样式规则](#HTML)
-  - [CSS样式规则](#CSS)
-  - [JavaScript样式规则](#JavaScript)
-
 ## 基础规范
 
 ### `项目文件夹` & `html, css, js 文件`命名规范
